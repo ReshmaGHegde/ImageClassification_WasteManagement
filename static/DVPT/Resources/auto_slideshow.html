@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Introduction Slidehow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+<style>
+.mySlides {display:none;}
+</style>
+</head>
+
+<body>
+
+<h2 class="container"align="center"> An Introduction to Recycle Responsibly</h2>
+    <div class="row">
+        <div align="center">
+        <div class="col-md-10">
+
+<div class="container" style="max-width:500px">
+  <img class="mySlides" src="Intro_Slides/slide_1.png" style="width:100%">
+  <img class="mySlides" src="Intro_Slides/slide_2.png" style="width:100%">
+  <img class="mySlides" src="Intro_Slides/slide_3.png" style="width:100%">
+  <img class="mySlides" src="Intro_Slides/slide_4.png" style="width:100%">
+  <img class="mySlides" src="Intro_Slides/slide_5.png" style="width:100%">
+  <img class="mySlides" src="Intro_Slides/slide_6.png" style="width:100%">
+  <img class="mySlides" src="Intro_Slides/slide_7.png" style="width:100%">
+  <img class="mySlides" src="Intro_Slides/slide_8.png" style="width:100%">
+  <img class="mySlides" src="Intro_Slides/slide_9.png" style="width:100%">
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 5000); // Change image every 30 seconds
+}
+</script>
+
+</body>
+</html>

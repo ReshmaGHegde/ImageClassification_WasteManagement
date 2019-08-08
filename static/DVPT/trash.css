@@ -1,0 +1,129 @@
+/* Body */
+body{
+    background-color: #f56d4b; 
+}
+/* Navbar */
+.navbar{
+    max-height: 75px; 
+}
+.navigation .navbar-brand{
+    color: #555; 
+    margin-left: 5px; 
+    padding: inherit; 
+    font-weight: bold; 
+    background-color: #50aac0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.navbar{
+    background-color: white; 
+    font-size: 30px; 
+}
+.active, .dropdown-menu .dropdown-item:active a:hover{
+    background-color: #f56d4b!important; 
+}
+.dropdown-item{
+    color: #555 !important; 
+}
+.dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover{
+    background-color: rgb(123, 186, 99) !important; 
+}
+a{
+    color: #50aac0;
+    font-size: 15px; 
+}
+.nav-link:hover{
+    background-color:whitesmoke !important;
+   }
+
+.navbar-brand:hover{
+color: whitesmoke !important;
+}
+/* Images */
+img{
+    width:50% !important;
+    height:50% !important;
+    }
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        background-color: #E7E7E7;
+      }
+.active, .panel:hover{
+    border-color: whitesmoke !important;
+    border-style: solid !important; 
+    
+}
+.vizualization{
+    width:100% !important;
+    height:100% !important;
+}
+
+/* Paragraph Element */
+p{
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px; 
+   }
+   /* Box Class */
+   .box {
+       margin-top: 90px; 
+       margin-bottom: 80px; 
+       padding: 100px 100px 100px; 
+       color:rgb(123, 186, 99);
+       background-color: white; 
+   
+     }
+   /* Table */
+     .table{
+       font-size: 25px; 
+       border-top-color: white !important; 
+   }
+   /* Media Queries */
+@media(max-width: 992px){
+    .navbar-expand-lg{
+    background-color: #555 !important;
+    }
+    .navbar{
+        max-height: none; 
+        padding: inherit;
+    }
+    .navbar div{
+        margin: inherit; 
+        background-color: white;  
+    }
+    .navbar-brand{
+        padding: 10px !important; 
+    }
+    
+    button{
+        margin-right: 50px; 
+    }
+    button:focus {
+    
+        outline: 1px dotted;
+        outline: 5px auto -webkit-focusring-color;
+        
+        }
+    }
+
+    .tiny {
+        font-size: .8em;
+        line-height: 1.5em;
+        /* margin-bottom: .5em; */
+        color: white;
+        font-family: verdana, tahoma, sans-serif;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    /* {box-sizing:border-box} */
+    /* Slideshow container */
+    .slideshow-container {
+     max-width: 1000px;
+     position: relative;
+     margin: auto;
+    }
+   

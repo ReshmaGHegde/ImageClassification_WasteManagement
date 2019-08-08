@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ***************************************************************************   -->
+
+<head>
+    <meta charset="utf-8">
+    <title>Waste Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/js" src="./static/testit1.js"></script>
+
+    <!-- <link rel="stylesheet" href="../static/style.css"> -->
+
+    <!-- ***************************************************************************   -->
+    <style type="text/css">
+        .bg-cover {
+            background-image: url("{{ url_for('static', filename='cover.jpg') }}");
+            background-repeat: repeat-x;
+            margin-bottom: 0px;
+            /* border:10px rgb(95, 38, 38) solid !important; */
+
+        }
+
+        body {
+            
+            background-color: rgb(241, 241, 215);
+
+        }
+    </style>
+    <!-- ***************************************************************************   -->
+</head>
+<!-- ***************************************************************************   -->
+
+<body>
+    <div class="jumbotron jumbotron bg-cover"
+        style="background-color: #797846;border:15px;border-color: darkolivegreen solid !important">
+        <div class="overlay">
+
+        </div>
+    </div>
+    <br>
+    <!-- ***************************************************************************   -->
+    <div class="jumbotron jumbotron" style="background-color: #f56d4b;padding: 3px 3px;border:black 1px solid">
+        <div class="overlay" align="center">
+            <h1 style="color: rgb(245, 244, 239);text-shadow:3px 3px #43377a;">Waste Management</h1>
+
+            <a class="nav-link" href={{ url_for('static', filename='DVPT/home.html')}} target="_blank"
+                style="font-size: 20px;color: rgb(245, 244, 239);text-shadow: 2px 2px rgb(28, 41, 38);"><span>&#9842;</span>
+                View Visualizations <span>&#9842;</span></a>
+
+        </div>
+
+    </div>
+    <!-- ***************************************************************************   -->
+    <div class="container-fluid">
+
+        <div class="row content">
+
+            <div class="col-md-6" text-align="center">
+
+            </div>
+        </div>
+    </div>
+    <!-- ***************************************************************************   -->
+    <div>
+        <b>
+            <h2>
+                <marquee style="color: rgb(85, 85, 85);text-shadow: 1px 1px rgb(14, 68, 12);"><span>&#9842;</span>
+                    Reduce...
+                    <span>&#9842;</span> Reuse... <span>&#9842;</span> Recycle...</marquee>
+            </h2>
+        </b>
+    </div>
+    <!-- ***************************************************************************   -->
+    <div class="container-fluid">
+
+        <div class="row content">
+                <div class="col-md-4"></div>
+
+            <div class="col-md-4">
+                    
+                <div class="form-group">
+                    <form enctype=multipart/form-data> <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="file" id="btnfile">
+                            <label class="custom-file-label" for="file">Upload an Image</label>
+
+                        </div>
+
+                        <div class="input-group-append">
+                            <button class="btn btn-primary"
+                                style="border-color: #50aac0;background-image: linear-gradient(#50aac0, #50aac0 60%, #50aac0);"
+                                type="button" value=Upload onclick="myFunction()">Upload</button>
+
+                        </div>
+                </div>
+                </form>
+
+            </div>
+            <div class="form-group">
+                <form enctype=multipart/form-data> <div class="input-group mb-3">
+                    <button method='POST' class="btn btn-primary"
+                        style="border-color: #568f35;background-image: linear-gradient(#568f35, #568f35 60%, #568f35);"
+                        type="button" id="predict">Predict</button>
+                    <button class="btn btn-primary"
+                        style="border-color: #50aac0;background-image: linear-gradient(#50aac0, #50aac0 60%, #50aac0);"
+                        id="clear" onclick="resetImage()">Clear</button>
+
+            </div>
+            </form>
+
+        </div>
+    </div>
+    </div>
+    </div>
+    <!-- ***************************************************************************   -->
+    <div class="row content">
+        <div class="col-md-4"></div>
+        <!-- ******** -->
+        <div class="col-md-4" style="margin-left: 10px"> 
+                
+            <img id="image" src="{{url_for('static', filename='trashcan.jpg')}}" class="img-rounded" alt="Cinque Terre"
+                width="320" height="230" style="border:5px #f56d4b solid !important">
+            <p id="demo"></p>
+        </div>
+        <!-- ******** -->
+        <div id=resultbox class="col-md-4" width="300" height="200">
+            
+            
+            <!-- <div id="result"></div> -->
+            <!-- <p id="result"></p> -->
+
+        
+
+        </div>
+        <!-- ******** -->
+    </div>
+    <!-- ******** -->
+    <div class="row content" style="padding-left: 20px">
+            <div class="col-md-3"></div>
+            <div class="col-md-1"></div>
+            
+            <div class="col-md-3" id="result" ><b></b></div>
+            <div class="col-md-5"></div>
+    </div>
+    <!-- ******** -->
+    
+        <!-- *************************************************************************** -->
+    <hr>
+    <div class="row content">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+        <h7 style="background-color: #50aac0;color: rgb(238, 245, 241);border:black 1px solid">
+            Duy || Reshma || Sneha || Sandi || KayJay &copy 2019
+        </h7>
+            </div>
+    </div>
+
+    <!-- *************************************************************************** -->
+    <script>
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#image').attr('src', e.target.result);
+                    console.log('target received')
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#btnfile").change(function () {
+            readURL(this);
+        });
+
+
+        function myFunction() {
+            var x = document.getElementById("btnfile").value;
+            var y = x.replace(/^.*[\\\/]/, '')
+            var info = "Image Filename: " + y;
+            document.getElementById("demo").innerHTML = info;
+            console.log(y)
+            console.log(document.getElementById("demo").textContent)
+
+        }
+        document.getElementById('predict').onclick = function changeContent() {
+            var x = document.getElementById("btnfile").value;
+            var y = x.replace(/^.*[\\\/]/, '')
+            console.log('Started the route loop')
+            d3.json(`/predict/${y}`).then(function (dataresponse) {
+                console.log("sampledata", dataresponse);
+                console.log("In the loop")
+                // return dataresponse.json()
+                // return filename;
+                document.getElementById("result").innerHTML = 'Classifier says: ' + dataresponse;
+                document.getElementById('result').style = "background-color: rgb(241, 241, 215);;text-align:center;display: inline-block;padding-right: 1px;padding-left: 1px;Color:rgb(82, 17, 17);font-size: 1rem;opacity:0.8;border: 5px solid rgb(6, 51, 23);";
+                var data1 = dataresponse;
+                return data1;
+
+            });
+
+            console.log("End of loop")
+        }
+
+        function resetImage() {
+            document.getElementById("image").src = "./static/trashcan.jpg";
+        }
+
+    </script>
+    <!-- ***************************************************************************   -->
+  
+
+</body>
+
+</html>
